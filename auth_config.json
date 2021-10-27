@@ -1,5 +1,5 @@
 {
-    "domain": "bls20.auth0.com",
-    "clientId": "QP19oglIMqRDlNoy2kOykclw2lbcxPh8",
-    "audience": "https://myfreshtracks.com"
+    "domain": "dev-freshtracker.us.auth0.com",
+    "clientId": "oD4l5s9g0AZx0aSOXhAvcHqMOlZucywJ",
+    "audience": "https://brave-mushroom-08adfca0f.azurestaticapps.net"
   }
