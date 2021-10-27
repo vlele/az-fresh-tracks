@@ -1,5 +1,5 @@
 {
     "domain": "dev-freshtracker.us.auth0.com",
     "clientId": "oD4l5s9g0AZx0aSOXhAvcHqMOlZucywJ",
-    "audience": "https://brave-mushroom-08adfca0f.azurestaticapps.net"
+    "audience": "https://dev-freshtracker.us.auth0.com/api/v2/"
   }
