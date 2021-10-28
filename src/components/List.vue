@@ -45,7 +45,6 @@
 import axios from 'axios';
 import IoT from './Iot'
 import SkeletonTable from './SkeletonTable'
-require("dotenv").config()
 
 export default {
   name: 'List',

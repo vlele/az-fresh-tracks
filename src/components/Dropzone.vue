@@ -12,7 +12,7 @@
 import Dropzone from 'dropzone'
 import '../../node_modules/dropzone/dist/dropzone.css'
 import axios from 'axios'
-require("dotenv").config()
+
 Dropzone.autoDiscover = false
 export default {
 

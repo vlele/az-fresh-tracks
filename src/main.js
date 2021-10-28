@@ -11,7 +11,6 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { faLink, faUser, faPowerOff } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-require("dotenv").config();
 
 //******  STEP 1. Un comment the "import" line below *********************** /
  //import { domain,clientId,audience } from "./auth/auth_config.json";

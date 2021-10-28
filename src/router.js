@@ -8,7 +8,7 @@ import Profile from "./views/Profile.vue";
 import Activities from "./views/Activities.vue";
 
 import { authGuard } from "./auth";
-require("dotenv").config();
+
 
 Vue.use(Router);
 

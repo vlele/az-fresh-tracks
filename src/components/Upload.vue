@@ -21,7 +21,7 @@
 
 <script>
 import axios from 'axios';
-require("dotenv").config()
+
 export default {
   name: 'Upload',
   props: {
