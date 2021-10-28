@@ -14,13 +14,13 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 
 //******  STEP 1. Un comment the "import" line below *********************** /
- import { domain,clientId,audience } from "./auth/auth_config.json";
+ //import { domain,clientId,audience } from "./auth/auth_config.json";
 //************************************************************************ /
 
 //****** STEP 2. Comment out the 3 lines below *************************** /
-// var domain = process.env.VUE_APP_Auth0_Domain
-// var clientId = process.env.VUE_APP_Auth0_ClientId
-// var audience = process.env.VUE_APP_Auth0_Audience
+var domain = process.env.VUE_APP_Auth0_Domain
+var clientId = process.env.VUE_APP_Auth0_ClientId
+var audience = process.env.VUE_APP_Auth0_Audience
 //************************************************************************ */
 
 require('./assets/css/style.css')
