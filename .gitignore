@@ -13,9 +13,7 @@ backend/FreshTracks/.aws-sam
 
 
 # local env files
-.env.local
-.env.*.local
-.env
+
 
 # Log files
 npm-debug.log*
@@ -104,8 +102,7 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
-.env.test
+
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
