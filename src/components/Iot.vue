@@ -8,6 +8,7 @@ export default {
   created () {
     const AWS = require('aws-sdk')
     const AWSIoTData = require('aws-iot-device-sdk')
+    require("dotenv").config()
     console.log('IoT component created')
     let that = this
 
