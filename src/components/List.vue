@@ -45,10 +45,11 @@
 import axios from 'axios';
 import IoT from './Iot'
 import SkeletonTable from './SkeletonTable'
+import configService from '../auth/configService'
 
 export default {
   name: 'List',
-
+  
   data:()=>{
     return {
       componentKey:0,
@@ -73,15 +74,18 @@ export default {
 
     loading() {
         this.showSkeleton=1;
+        this.configs = this.configService.getConfigs();
     },
 
     async getActivities() {
+      console.log("In get activities");
+      console.log("VUE_APP_APIGW_URL123", configService.getConfigs());
       const token = await this.$auth.getTokenSilently()
       console.log( 'Token:'+token)
       axios({
         method: "GET",
         headers:{ Authorization: `Bearer ${token}` } ,  
-        url: process.env.VUE_APP_APIGW_URL+'/activities',
+        url: configService.getConfigs().VUE_APP_APIGW_URL+'/activities',
         params:{"user_id": this.user_id},
       }).then(response => { 
         this.success = 'Data retrieved successfully';

@@ -3,6 +3,7 @@
     {
       "authLevel": "anonymous",
       "type": "httpTrigger",
+      "route": "activity",
       "direction": "in",
       "name": "req",
       "methods": [

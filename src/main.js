@@ -13,13 +13,13 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 
 //******  STEP 1. Un comment the "import" line below *********************** /
- //import { domain,clientId,audience } from "./auth/auth_config.json";
+ import { domain,clientId,audience, apigatewayUrl,VUE_APP_IdentityPoolId, VUE_APP_AwsIoTEndpoint, VUE_APP_AWSRegion } from "./auth/auth_config.json";
 //************************************************************************ /
 
 //****** STEP 2. Comment out the 3 lines below *************************** /
-var domain = process.env.VUE_APP_Auth0_Domain
-var clientId = process.env.VUE_APP_Auth0_ClientId
-var audience = process.env.VUE_APP_Auth0_Audience
+// var domain = process.env.VUE_APP_Auth0_Domain
+// var clientId = process.env.VUE_APP_Auth0_ClientId
+// var audience = process.env.VUE_APP_Auth0_Audience
 //************************************************************************ */
 
 require('./assets/css/style.css')
@@ -48,5 +48,14 @@ Vue.component("font-awesome-icon", FontAwesomeIcon);
 
 new Vue({
   router,
-  render: h => h(App)
+  render: h => h(App),
+  data:{
+    domain: domain,
+    clientId: clientId,
+    audience: audience,
+    apigatewayUrl: apigatewayUrl,
+    VUE_APP_IdentityPoolId: VUE_APP_IdentityPoolId, 
+    VUE_APP_AwsIoTEndpoint: VUE_APP_AwsIoTEndpoint,
+    VUE_APP_AWSRegion : VUE_APP_AWSRegion
+  }
 }).$mount("#app");

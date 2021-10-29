@@ -3,6 +3,7 @@
 </template>
 
 <script>
+import { VUE_APP_AWSRegion, VUE_APP_IdentityPoolId, VUE_APP_AwsIoTEndpoint } from "../auth/auth_config.json";
 export default {
   name: 'IoT',
   created () {
@@ -17,9 +18,9 @@ export default {
     console.log('subscribedto'+'-'+currentlySubscribedTopic)
 
     const AWSConfiguration = {
-      poolId: process.env.VUE_APP_IdentityPoolId, // 'YourCognitoIdentityPoolId'
-      host: process.env.VUE_APP_AwsIoTEndpoint, // 'YourAwsIoTEndpoint', e.g. 'prefix.iot.us-east-1.amazonaws.com'
-      region: process.env.VUE_APP_AWSRegion // 'YourAwsRegion', e.g. 'us-east-1'
+      poolId: VUE_APP_IdentityPoolId, // 'YourCognitoIdentityPoolId'
+      host: VUE_APP_AwsIoTEndpoint, // 'YourAwsIoTEndpoint', e.g. 'prefix.iot.us-east-1.amazonaws.com'
+      region: VUE_APP_AWSRegion // 'YourAwsRegion', e.g. 'us-east-1'
     }
 
     const clientId = 'UpdateTable-'+this.$auth.user.sub+'-' + (Math.floor((Math.random() * 100000000) + 1))
