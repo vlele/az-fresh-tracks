@@ -45,6 +45,7 @@
 import axios from 'axios';
 import IoT from './Iot'
 import SkeletonTable from './SkeletonTable'
+import { VUE_APP_APIGW_URL } from "../auth/auth_config.json";
 
 export default {
   name: 'List',
@@ -81,7 +82,7 @@ export default {
       axios({
         method: "GET",
         headers:{ Authorization: `Bearer ${token}` } ,  
-        url: process.env.VUE_APP_APIGW_URL+'/activities',
+        url: VUE_APP_APIGW_URL+'/activities',
         params:{"user_id": this.user_id},
       }).then(response => { 
         this.success = 'Data retrieved successfully';

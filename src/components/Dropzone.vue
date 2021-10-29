@@ -12,6 +12,7 @@
 import Dropzone from 'dropzone'
 import '../../node_modules/dropzone/dist/dropzone.css'
 import axios from 'axios'
+import { VUE_APP_APIGW_URL } from "../auth/auth_config.json";
 
 Dropzone.autoDiscover = false
 export default {
@@ -89,7 +90,7 @@ export default {
             return axios({
                 method: "POST",
                 headers:{ Authorization: `Bearer ${token}` } ,  
-                url: process.env.VUE_APP_APIGW_URL+'/signUrl',
+                url: VUE_APP_APIGW_URL+'/signUrl',
                 data:{'filePath': file.name,'contentType':file.contentType,'user_id':this.$auth.user.sub}
               }).then((res) => {
               console.log('here')

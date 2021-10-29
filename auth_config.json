@@ -1,5 +1,9 @@
 {
-    "domain": "",
-    "clientId": "",
-    "audience": ""
+    "domain": "dev-freshtracker.us.auth0.com",
+    "clientId": "oD4l5s9g0AZx0aSOXhAvcHqMOlZucywJ",
+    "audience": "https://dev-freshtracker.us.auth0.com/api/v2/",
+    "apigatewayUrl": "https://freshtracksapimanagement.azure-api.net/tracksapi",
+    "VUE_APP_IdentityPoolId": " ",
+    "VUE_APP_AwsIoTEndpoint": " ",
+    "VUE_APP_AWSRegion": " "
   }
