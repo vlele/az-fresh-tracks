@@ -65,7 +65,7 @@ import 'leaflet-gpx';
 
 import { LMap, LTileLayer, LMarker, LPopup, LTooltip } from "vue2-leaflet";
 import axios from 'axios';
-import { VUE_APP_APIGW_URL } from "../auth/auth_config.json";
+import configService from '../auth/configService'
 
 var L = window.L; // to get around the ESLint failure
 
@@ -132,7 +132,7 @@ export default {
           axios({
             method: "GET",
             headers:{ Authorization: `Bearer ${token}` } ,  
-            url: VUE_APP_APIGW_URL+'/activity',
+            url: configService.getConfigs().VUE_APP_APIGW_URL+'/activity',
             params:{"ID": this.$route.query.ID},
 
           }).then(response => {

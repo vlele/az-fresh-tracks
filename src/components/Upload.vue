@@ -21,7 +21,7 @@
 
 <script>
 import axios from 'axios';
-import { VUE_APP_APIGW_URL } from "../auth/auth_config.json";
+import configService from "../auth/configService"
 export default {
   name: 'Upload',
   props: {
@@ -52,7 +52,7 @@ export default {
       //console.log(this.GPXData)
       axios({
         method: "POST",
-        url: VUE_APP_APIGW_URL,
+        url: configService.getConfigs().VUE_APP_APIGW_URL,
         data: {"user_id": this.$auth.user.sub,"xmlData":this.GPXData},
       }).then(response => {
         console.log(response);
