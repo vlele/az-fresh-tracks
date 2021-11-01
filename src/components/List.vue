@@ -37,7 +37,7 @@
       </div>
 
        <h1></h1>
-    <IoT/>
+    <!-- <IoT/> -->
     </div>
 </template>
 
