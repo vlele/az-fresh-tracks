@@ -5,7 +5,7 @@ module.exports = async function (context, eventGridEvent) {
     context.log(eventGridEvent);
     context.log('My Trigger is called...');
 
-    const url = 'https://fresh-tracks-api.azurewebsites.net/api/orchestrators/ProcessFileOrchestrator';
+    const url = 'https://fresh-tracks-backend.azurewebsites.net/api/orchestrators/ProcessFileOrchestrator';
 
     axios
         .post(url, eventGridEvent)

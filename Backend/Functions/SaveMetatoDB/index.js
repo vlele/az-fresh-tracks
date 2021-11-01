@@ -10,5 +10,5 @@
  */
 
 module.exports = async function (context) {
-    return `Hello ${context.bindings.name}!`;
+    return `Hello ${context.bindings.metadata}!`;
 };

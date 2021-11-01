@@ -27,5 +27,6 @@
 module.exports = async function (context) {
     context.log("blobinfo", context.bindings.blobinfo);
     //need to process gpx file here
+    
     return `Hello ${context.bindings.blobinfo}!`;
 };
