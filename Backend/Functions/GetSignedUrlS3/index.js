@@ -10,7 +10,7 @@ module.exports = async function (context, req) {
     blobSASPermission.expiry
     const accountname ="storagefreshtracks";
     const containerName = "freshtracks";
-    const key = process.env.StorageFreshTracks_AccessKey;
+    const key = "DwVLDqHw2T6fVIE0swFJtCrCQXLIGiD5BBIQWNa4m/epmDw/ZZqtvgmG0KqQpMK7ybk+WPetFlW4F5kVNsrPag=="
 
     ////Using Emulator
     //const accountname = 'devstoreaccount1'local storage emulator accouont name substitute.
