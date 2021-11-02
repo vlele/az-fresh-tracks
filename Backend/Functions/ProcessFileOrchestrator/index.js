@@ -15,7 +15,7 @@ module.exports = df.orchestrator(function* (context) {
     const outputs = [];
 
     context.log("Input Received From HttpTrigger Functionn...", context.bindingData.input);
-
+    context.log("Context...", context);
     // Replace "Hello" with the name of your Durable Activity Function.
     outputs.push(yield context.df.callActivity("ProcessGPXFIle", context.bindingData.input));
     outputs.push(yield context.df.callActivity("SaveMetatoDB", "previousInput"));
