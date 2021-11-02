@@ -37,7 +37,7 @@
       </div>
 
        <h1></h1>
-    <IoT/>
+    <!-- <IoT/> -->
     </div>
 </template>
 
@@ -79,7 +79,7 @@ export default {
 
     async getActivities() {
       console.log("In get activities");
-      console.log("VUE_APP_APIGW_URL123", configService.getConfigs());
+      console.log("VUE_APP_APIGW_URL123", configService.getConfigs().VUE_APP_APIGW_URL);
       const token = await this.$auth.getTokenSilently()
       console.log( 'Token:'+token)
       axios({
