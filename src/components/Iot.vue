@@ -82,6 +82,27 @@ export default {
       // Send the message back to parent component
       that.$root.$emit('send', msg)
     })
+
+    const connect = () => {
+    const connection = new signalR.HubConnectionBuilder()
+                            .withUrl(`${getAPIBaseUrl()}/api`)
+                            .build();
+
+    connection.onclose(()  => {
+        console.log('SignalR connection disconnected');
+        setTimeout(() => connect(), 2000);
+    });
+
+    connection.on('updated', updatedStock => {
+         that.$root.$emit('send', msg)
+    });
+
+    connection.start().then(() => {
+        console.log("SignalR connection established");
+    });
+};
+
+//connect();
   }
 }
 </script>

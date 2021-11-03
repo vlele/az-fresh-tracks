@@ -4,6 +4,13 @@
       "name": "name",
       "type": "activityTrigger",
       "direction": "in"
+    },
+    {
+      "type": "signalR",
+      "direction": "out",
+      "name": "signalRMessages",
+      "hubName": "tracksignal",
+      "connectionStringSetting": "Endpoint=https://tracksignal.service.signalr.net;AccessKey=uTZ2ns7G2pW1RI9YIhr37uSr8C9xoJmveW1+PkSQiLo=;Version=1.0;"
     }
   ]
 }
