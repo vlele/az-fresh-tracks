@@ -4,11 +4,14 @@
 
 <script>
 import { VUE_APP_AWSRegion, VUE_APP_IdentityPoolId, VUE_APP_AwsIoTEndpoint } from "../auth/auth_config.json";
+import configService from '../auth/configService'
 export default {
   name: 'IoT',
   created () {
     const AWS = require('aws-sdk')
     const AWSIoTData = require('aws-iot-device-sdk')
+    
+
     
     console.log('IoT component created')
     let that = this
@@ -82,6 +85,27 @@ export default {
       // Send the message back to parent component
       that.$root.$emit('send', msg)
     })
+
+//     const connect = () => {
+//     const connection = new signalR.HubConnectionBuilder()
+//                             .withUrl(`${configService.getConfigs().VUE_APP_APIGW_URL}/api`)
+//                             .build();
+
+//     connection.onclose(()  => {
+//         console.log('SignalR connection disconnected');
+//         setTimeout(() => connect(), 2000);
+//     });
+
+//     connection.on('updated', updatedStock => {
+//          that.$root.$emit('send', "updated")
+//     });
+
+//     connection.start().then(() => {
+//         console.log("SignalR connection established");
+//     });
+// };
+
+//connect();
   }
 }
 </script>

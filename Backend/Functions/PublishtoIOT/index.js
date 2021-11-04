@@ -10,5 +10,12 @@
  */
 
 module.exports = async function (context) {
+    context.bindings.signalRMessages = "Test Message";
+
+
+    context.bindings.signalRMessages = [{
+        "target": "newMessage",
+        "arguments": ""}]
+    context.done();
     return `Hello ${context.bindings.name}!`;
 };
