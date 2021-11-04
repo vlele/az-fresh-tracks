@@ -31,6 +31,7 @@ export default {
       method: 'put',
 
       //headers: {"userId":vm.$auth.user.name},
+      headers: {"x-ms-blob-type": "BlockBlob"},
 
        //headers: {'x-amz-meta-user-id': "123"},
 
@@ -75,7 +76,8 @@ export default {
     this.dropzone = new Dropzone(this.$el, options)
     // Set signed upload URL for each file
     vm.dropzone.on('processing', (file) => {
-      vm.dropzone.options.url = file.uploadURL
+      vm.dropzone.options.url = file.uploadURL;
+      vm.dropzone.options.headers["Content-Type"] = file.Type;
     }),
      vm.dropzone.on("success", (file) => {
       vm.componentKey+=1
