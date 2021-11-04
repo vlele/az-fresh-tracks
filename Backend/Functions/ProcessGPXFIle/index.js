@@ -23,9 +23,8 @@
 // storageDiagnostics: { batchId: '2e3f4e2e-c006-002a-0018-ce7ab5000000' }},dataVersion: '',metadataVersion: '1',eventTime: '2021-10-31T05:32:27.8041527Z'}
 
 var GPX = require("gpx-parse");
-const axios = require('axios');
-var storage = require("@azure/storage-blob")
-const url = require('url');;
+const storage = require("@azure/storage-blob");
+const url = require('url');
 const headers = {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
@@ -36,11 +35,7 @@ const headers = {
 module.exports = async function (context) {
   context.log("blobinfo", context.bindings.blobinfo);
   try {
-  var blobSASPermission = new storage.BlobSASPermissions();
-  blobSASPermission.write = true;
-  blobSASPermission.create = true;
-  blobSASPermission.add = true;
-  blobSASPermission.expiry
+  
   const accountname ="storagefreshtracks";
   const containerName = "freshtracks";
   const key = "DwVLDqHw2T6fVIE0swFJtCrCQXLIGiD5BBIQWNa4m/epmDw/ZZqtvgmG0KqQpMK7ybk+WPetFlW4F5kVNsrPag=="
@@ -66,7 +61,7 @@ GPX.parseGpx(gpx, function(error, data) {
 
     return {
         statusCode: 200,
-        body:{gpxMeta:gpxMeta,gpxFile: context.bindings.blobinfo.data.url} ,
+        body:{gpxMeta:gpxMeta,gpxFile: context.bindings.blobinfo.data.url,blobName: blobName} ,
         headers,
     }
   } catch (err) {
