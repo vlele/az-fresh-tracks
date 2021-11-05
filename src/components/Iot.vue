@@ -5,6 +5,8 @@
 <script>
 import { VUE_APP_AWSRegion, VUE_APP_IdentityPoolId, VUE_APP_AwsIoTEndpoint } from "../auth/auth_config.json";
 import configService from '../auth/configService'
+import signalR from "@microsoft/signalr"
+import axios from "axios"
 export default {
   name: 'IoT',
   created () {
@@ -12,7 +14,7 @@ export default {
     const AWSIoTData = require('aws-iot-device-sdk')
     
 
-    
+    //{headers.x-ms-client-principal-id}
     console.log('IoT component created')
     let that = this
 
@@ -29,6 +31,7 @@ export default {
     const clientId = 'UpdateTable-'+this.$auth.user.sub+'-' + (Math.floor((Math.random() * 100000000) + 1))
     AWS.config.region = AWSConfiguration.region
 
+/*
     AWS.config.credentials = new AWS.CognitoIdentityCredentials({
       IdentityPoolId: AWSConfiguration.poolId
     })
@@ -86,26 +89,39 @@ export default {
       that.$root.$emit('send', msg)
     })
 
-//     const connect = () => {
-//     const connection = new signalR.HubConnectionBuilder()
-//                             .withUrl(`${configService.getConfigs().VUE_APP_APIGW_URL}/api`)
-//                             .build();
+*/
+    const connect = () => {
 
-//     connection.onclose(()  => {
-//         console.log('SignalR connection disconnected');
-//         setTimeout(() => connect(), 2000);
-//     });
+var funcAppUrl= "https://durablefunctionexample.azurewebsites.net";
 
-//     connection.on('updated', updatedStock => {
-//          that.$root.$emit('send', "updated")
-//     });
+      const { url: connectionUrl, accessToken } = axios
+  .get(`${funcAppUrl}&userId=${this.$auth.user.sub}`)
+  .then(({ data }) =>{
+    data;
+    console.log("connection Info:", data)})
+  .catch(console.error)
 
-//     connection.start().then(() => {
-//         console.log("SignalR connection established");
-//     });
-// };
+    const connection = new signalR.HubConnectionBuilder()
+                            .withUrl(`${configService.getConfigs().VUE_APP_APIGW_URL}/api`)
+                            .configureLogging(signalR.LogLevel.Information)
+                            .build();
 
-//connect();
+    connection.onclose(()  => {
+        console.log('SignalR connection disconnected');
+        setTimeout(() => connect(), 2000);
+    });
+
+    connection.on('updated', updated => {
+         console.log("Received message...",updated);
+         //that.$root.$emit('send', "updated")
+    });
+
+    connection.start().then(() => {
+        console.log("SignalR connection established");
+    });
+};
+
+connect();
   }
 }
 </script>
