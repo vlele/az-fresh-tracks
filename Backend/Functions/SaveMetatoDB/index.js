@@ -32,8 +32,7 @@ module.exports = async function (context,req) {
         created: Math.floor(Date.now() / 1000),
         metadata:JSON.stringify({gpxMeta : context.bindingData.data.body.gpxMeta}),   
         key: context.bindingData.data.body.blobName,
-        //userId:context.bindings.requestParameters['x-amz-meta-user-id']   
-        user_id:"github|15193857"
+        user_id:context.bindingData.data.body.userID
     }
     const client = new CosmosClient({ endpoint, key });
     const dbResponse = await client.databases.createIfNotExists({
