@@ -61,7 +61,7 @@ GPX.parseGpx(gpx, function(error, data) {
 
     return {
         statusCode: 200,
-        body:{gpxMeta:gpxMeta,gpxFile: context.bindings.blobinfo.data.url,blobName: blobName} ,
+        body:{gpxMeta:gpxMeta,gpxFile: context.bindings.blobinfo.data.url,blobName: blobName,userID:downloadBlockBlobResponse.metadata.userid} ,
         headers,
     }
   } catch (err) {
