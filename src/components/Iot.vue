@@ -47,7 +47,7 @@ export default {
         setTimeout(() => this.ConnectToHub(), 2000);
       });
 
-      connection.on("fileprocess", (updated) => {
+      connection.on("fileUpload", (updated) => {
         console.log("Received message...", updated);
         this.$root.$emit("send", "updated");
       });
