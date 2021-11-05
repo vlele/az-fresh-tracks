@@ -25,7 +25,7 @@ export default {
       axios({
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },
-        url: configService.getConfigs().VUE_APP_APIGW_URL + "/Connect", //?userId='+clientId
+        url: configService.getConfigs().VUE_APP_APIGW_URL + "/Connect?userId="+this.$auth.user.sub,
         params: { user_id: this.user_id },
       }).then(({ data }) => {
         connectionUrl = data.url;
