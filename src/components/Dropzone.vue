@@ -31,7 +31,7 @@ export default {
       method: 'put',
 
       //headers: {"userId":vm.$auth.user.name},
-      headers: {"x-ms-blob-type": "BlockBlob"},
+      headers: {"x-ms-blob-type": "BlockBlob", "x-ms-meta-userId": this.$auth.user.sub},
 
        //headers: {'x-amz-meta-user-id': "123"},
 
