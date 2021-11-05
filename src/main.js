@@ -13,7 +13,7 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 
 //******  STEP 1. Un comment the "import" line below *********************** /
- import { domain,clientId,audience, apigatewayUrl,VUE_APP_IdentityPoolId, VUE_APP_AwsIoTEndpoint, VUE_APP_AWSRegion } from "./auth/auth_config.json";
+ import { domain,clientId,audience, VUE_APP_APIGW_URL,VUE_APP_IdentityPoolId, VUE_APP_AwsIoTEndpoint, VUE_APP_AWSRegion } from "./auth/auth_config.json";
 //************************************************************************ /
 
 //****** STEP 2. Comment out the 3 lines below *************************** /
@@ -53,9 +53,6 @@ new Vue({
     domain: domain,
     clientId: clientId,
     audience: audience,
-    apigatewayUrl: apigatewayUrl,
-    VUE_APP_IdentityPoolId: VUE_APP_IdentityPoolId, 
-    VUE_APP_AwsIoTEndpoint: VUE_APP_AwsIoTEndpoint,
-    VUE_APP_AWSRegion : VUE_APP_AWSRegion
+    apigatewayUrl: VUE_APP_APIGW_URL
   }
 }).$mount("#app");
