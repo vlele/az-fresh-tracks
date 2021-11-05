@@ -75,6 +75,7 @@ export default {
     loading() {
         this.showSkeleton=1;
         this.configs = this.configService.getConfigs();
+        console.log("process.env.VUE_APP_Auth0_Audience::", process.env.VUE_APP_Auth0_Audience);
     },
 
     async getActivities() {
