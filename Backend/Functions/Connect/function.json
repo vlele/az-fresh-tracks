@@ -19,9 +19,9 @@
       "type": "signalRConnectionInfo",
       "direction": "in",
       "name": "connectionInfo",
-      "hubName": "fileprocess",
-      
-      "connectionStringSetting": "signalrendpoint"
+      "hubName": "tracksignal",
+      "userId": "{userId}",
+      "connectionStringSetting": "FreshTracks_SignalR_Connection"
     }
   ]
 }

@@ -10,7 +10,7 @@
       "direction": "out",
       "name": "signalRMessages",
       "hubName": "tracksignal",
-      "connectionStringSetting": "signalrendpoint"
+      "connectionStringSetting": "FreshTracks_SignalR_Connection"
     }
   ]
 }

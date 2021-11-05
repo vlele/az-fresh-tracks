@@ -37,7 +37,7 @@
       </div>
 
        <h1></h1>
-    <!-- <IoT/> -->
+    <IoT/>
     </div>
 </template>
 
@@ -81,7 +81,6 @@ export default {
     async getActivities() {
       console.log("In get activities");
       console.log("VUE_APP_APIGW_URL123", configService.getConfigs().VUE_APP_APIGW_URL);
-       console.log("process.env.VUE_APP_Auth0_Audience::", process.env.VUE_APP_Auth0_Audience);
       const token = await this.$auth.getTokenSilently()
       console.log( 'Token:'+token)
       axios({
@@ -92,7 +91,7 @@ export default {
       }).then(response => { 
         this.success = 'Data retrieved successfully';
         //this.response = JSON.stringify(response, null, 2)
-        this.activities= response.data.Items
+        this.activities= (response && response.data)? response.data.Items:[];
 
         let total =   this.total
         this.showSkeleton=0;

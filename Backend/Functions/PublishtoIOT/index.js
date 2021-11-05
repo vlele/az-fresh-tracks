@@ -13,9 +13,7 @@ module.exports = async function (context) {
     context.bindings.signalRMessages = "Test Message";
 //Endpoint=https://tracksignal.service.signalr.net;AccessKey=uTZ2ns7G2pW1RI9YIhr37uSr8C9xoJmveW1+PkSQiLo=;Version=1.0;
 
-context.bindings.signalRMessages = {target: 'statusUpdates',
-arguments: ["test1","test2","test3"]};
-
+context.bindings.signalRMessages = {target: 'fileUpload',
+arguments: ["Done"]};
     context.done();
-    return `Hello ${context.bindings.name}!`;
 };
