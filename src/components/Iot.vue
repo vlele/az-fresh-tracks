@@ -38,7 +38,7 @@ export default {
       const signalR = require("@microsoft/signalr");
       const connection = new signalR.HubConnectionBuilder()
         .withUrl(connectionUrl, { accessTokenFactory: () => accessToken })
-        .configureLogging(signalR.LogLevel.Trace)
+        //.configureLogging(signalR.LogLevel.Trace)
         .withAutomaticReconnect()
         .build();
 

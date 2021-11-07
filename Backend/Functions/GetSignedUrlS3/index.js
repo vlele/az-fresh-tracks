@@ -31,7 +31,7 @@ module.exports = async function (context, req) {
     const cerds = new storage.StorageSharedKeyCredential(accountname,key);
     const blobServiceClient = new storage.BlobServiceClient(`https://${accountname}.blob.core.windows.net`,cerds);
     const client =blobServiceClient.getContainerClient(containerName)
-    const blobName=  "file.txt";//context.req.body.filePath; //can be hard-coded while debugging locally.
+    const blobName=  context.req.body.filePath; //can be hard-coded while debugging locally.
     const blobClient = client.getBlobClient(blobName);
 
     const blobSAS = storage.generateBlobSASQueryParameters({

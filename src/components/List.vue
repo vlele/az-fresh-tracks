@@ -74,7 +74,7 @@ export default {
 
     loading() {
         this.showSkeleton=1;
-        this.configs = this.configService.getConfigs();
+        //this.configs = this.configService.getConfigs();
        
     },
 
