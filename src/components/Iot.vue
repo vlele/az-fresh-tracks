@@ -10,7 +10,7 @@ export default {
   name: "IoT",
   methods: {
     async ConnectToHub() {
-      const currentlySubscribedTopic = "UpdateTable-" + this.$auth.user.sub;
+      const currentlySubscribedTopic = "fileUpload-" + this.$auth.user.sub;
     console.log("subscribedto" + "-" + currentlySubscribedTopic);
 
     const clientId =
@@ -47,7 +47,7 @@ export default {
         setTimeout(() => this.ConnectToHub(), 2000);
       });
 
-      connection.on("fileUpload", (updated) => {
+      connection.on(currentlySubscribedTopic, (updated) => {
         console.log("Received message...", updated);
         this.$root.$emit("send", "updated");
       });

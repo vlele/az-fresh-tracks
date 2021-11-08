@@ -14,6 +14,7 @@ module.exports = async function (context) {
 //Endpoint=https://tracksignal.service.signalr.net;AccessKey=uTZ2ns7G2pW1RI9YIhr37uSr8C9xoJmveW1+PkSQiLo=;Version=1.0;
 
 context.bindings.signalRMessages = {target: 'fileUpload',
+userId: context.name,
 arguments: ["Done"]};
     context.done();
 };
