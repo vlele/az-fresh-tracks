@@ -18,10 +18,10 @@
                     {{ JSON.parse(item.metadata.S).gpxMeta.time }}
                   </td> -->
                   <td>
-                    <a v-bind:id="index" v-bind:href="'/activities?ID='+ item.ID">{{ JSON.parse(item.metadata).gpxMeta.name }} </a>
+                    <a v-bind:id="index" v-bind:href="'/activities?ID='+ item.metadata.id">{{ JSON.parse(item.metadata).gpxMeta.name }} </a>
                   </td>
                   <td>
-                    <a v-bind:href="'/activities?ID='+ item.ID">{{ parseInt(JSON.parse(item.metadata).gpxMeta['length']) }} km </a>
+                    <a v-bind:href="'/activities?ID='+ item.metadata.id">{{ parseInt(JSON.parse(item.metadata).gpxMeta['length']) }} km </a>
                   </td>
    
                 </tr>
