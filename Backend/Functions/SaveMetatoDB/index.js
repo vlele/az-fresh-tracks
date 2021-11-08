@@ -12,10 +12,10 @@
 
 const { CosmosClient } = require("@azure/cosmos");
 
-const endpoint = "https://rgfreshtrackscosmosdb.documents.azure.com:443/";
-const key = "ajToBjXzj6mUXARpdzfMCO2rrncYYqPuYmt7cfivdjm4mzUnGfl8jXllmdDae3qpm8hHQn86xXnFulo8UN6kLA==";
-const dbName = 'FreshTracksGpx';
-const containerName = 'GpxItems';
+const endpoint = process.env.FreshTracks_CosmosAccount_Endpoint;
+const key = process.env.FreshTracks_CosmosAccount_Key;
+const dbName = process.env.FreshTracks_CosmosAccount_DBName;
+const containerName = process.env.FreshTracks_CosmosAccount_ContainerName;
 
 const headers = { 
   'Content-Type': 'application/json',

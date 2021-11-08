@@ -11,7 +11,7 @@ SPDX-License-Identifier: MIT-0 */
       </div>
     </div>
     <footer class="bg-light text-center p-3">
-        <a href="https://github.com/aws-samples/fresh-Tracks">
+        <!-- <a href="https://github.com/aws-samples/fresh-Tracks">
       <div class="logo"></div>
       <p>
         Source code available on Github
@@ -21,7 +21,8 @@ SPDX-License-Identifier: MIT-0 */
               <a href="https://aws.amazon.com/privacy/">Privacy</a> | 
               <a href="https://aws.amazon.com/terms/">Site Terms</a> |
               &copy; Copyright 2020 Amazon.com, Inc. or its affiliates. All rights reserved.
-        </p><!-- /.site-footer__copy -->
+        </p> -->
+        <!-- /.site-footer__copy -->
 
     </footer>
   </div>

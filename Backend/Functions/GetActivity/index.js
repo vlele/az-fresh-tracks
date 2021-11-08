@@ -10,19 +10,19 @@ module.exports = async function (context, req) {
       }
 
     try {        
-        const endpoint = "https://rgfreshtrackscosmosdb.documents.azure.com:443/";
-        const key = "ajToBjXzj6mUXARpdzfMCO2rrncYYqPuYmt7cfivdjm4mzUnGfl8jXllmdDae3qpm8hHQn86xXnFulo8UN6kLA==";
-        const dbName = 'FreshTracksGpx';
-        const dbContainerName = 'GpxItems';
+        const endpoint = process.env.FreshTracks_CosmosAccount_Endpoint;
+        const key = process.env.FreshTracks_CosmosAccount_Key;
+        const dbName = process.env.FreshTracks_CosmosAccount_DBName;
+        const dbContainerName = process.env.FreshTracks_CosmosAccount_ContainerName;
         const dbClient = new CosmosClient({ endpoint, key });
-        const accountname ="storagefreshtracks";
-        const containerName = "freshtracks";
-        const blobkey = "DwVLDqHw2T6fVIE0swFJtCrCQXLIGiD5BBIQWNa4m/epmDw/ZZqtvgmG0KqQpMK7ybk+WPetFlW4F5kVNsrPag=="
+        const accountname = process.env.FreshTracks_StorageAccount;
+        const containerName = process.env.FreshTracks_FileUploadContainer;
+        const blobkey = process.env.FreshTracks_StorageAccount_Key;
         const creds = new storage.StorageSharedKeyCredential(accountname,blobkey);
         const blobServiceClient = new storage.BlobServiceClient(`https://${accountname}.blob.core.windows.net`,creds);
         const client =blobServiceClient.getContainerClient(containerName)
         
-        const id = context.bindingData.query.id;
+        const id = context.bindingData.query.iD;
         const database = dbClient.database(dbName);
         const container = database.container(dbContainerName);
         
@@ -39,7 +39,7 @@ module.exports = async function (context, req) {
       console.log('\nDownloaded blob content...');
 
       let gpx  = await streamToString(downloadBlockBlobResponse.readableStreamBody);
-         return  response = {
+       context.res = {
             statusCode: 200,
             body: gpx,
             headers
