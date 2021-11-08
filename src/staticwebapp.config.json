@@ -1,0 +1,14 @@
+{
+    "navigationFallback": {
+        "rewrite": "./Views/Home.vue",
+        "exclude": ["*.{css,scss,js,png,gif,ico,jpg,svg}"]
+    },
+    "routes": [
+        {
+            "route": "/activities",
+            "method": ["Get"],
+            "redirect": "./Views/Activities.vue",
+            "statusCode": 301
+        }
+    ]
+}
