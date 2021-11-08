@@ -22,7 +22,7 @@ module.exports = async function (context, req) {
         const blobServiceClient = new storage.BlobServiceClient(`https://${accountname}.blob.core.windows.net`,creds);
         const client =blobServiceClient.getContainerClient(containerName)
         
-        const id = context.bindingData.query.id;
+        const id = context.bindingData.query.iD;
         const database = dbClient.database(dbName);
         const container = database.container(dbContainerName);
         

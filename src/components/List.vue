@@ -18,10 +18,10 @@
                     {{ JSON.parse(item.metadata.S).gpxMeta.time }}
                   </td> -->
                   <td>
-                    <a v-bind:id="index" v-bind:href="'/activities?id='+ item.id ">{} JSON.parse(item.metadata.gpxMeta.name) }} </a>
+                    <a v-bind:id="index" v-bind:href="'/activities?ID='+ item.id ">{{ JSON.parse(item.metadata).gpxMeta.name }} </a>
                   </td>
                   <td>
-                    <a v-bind:href="'/activities?id='+ item.id ">{{ parseInt(JSON.parse(item.metadata.gpxMeta['length'])) }} km </a>
+                    <a v-bind:href="'/activities?ID='+ item.id ">{{ parseInt(JSON.parse(item.metadata).gpxMeta['length']) }} km </a>
                   </td>
    
                 </tr>
@@ -97,7 +97,7 @@ export default {
         this.showSkeleton=0;
         this.activities.forEach(function(item) {
              //total += JSON.parse(item.metadata.S).gpxMeta['length']
-            total += JSON.parse(item.metadata.S).gpxMeta['length']
+            total += JSON.parse(item.metadata).gpxMeta['length']
             
         });
          this.$emit('DistanceTotal',total)
