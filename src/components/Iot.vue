@@ -10,8 +10,7 @@ export default {
   name: "IoT",
   methods: {
     async ConnectToHub() {
-      const currentlySubscribedTopic = "fileUpload-" + this.$auth.user.sub;
-    console.log("subscribedto" + "-" + currentlySubscribedTopic);
+     
 
     const clientId =
       "UpdateTable-" +
@@ -36,6 +35,8 @@ export default {
 
     getUpdates(connectionUrl, accessToken) {
       const signalR = require("@microsoft/signalr");
+       const currentlySubscribedTopic = "fileUpload-" + this.$auth.user.sub;
+    console.log("subscribedto" + "-" + currentlySubscribedTopic);
       const connection = new signalR.HubConnectionBuilder()
         .withUrl(connectionUrl, { accessTokenFactory: () => accessToken })
         //.configureLogging(signalR.LogLevel.Trace)
