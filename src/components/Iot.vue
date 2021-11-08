@@ -36,7 +36,7 @@ export default {
     getUpdates(connectionUrl, accessToken) {
       const signalR = require("@microsoft/signalr");
        const currentlySubscribedTopic = "fileUpload-" + this.$auth.user.sub;
-    console.log("subscribedto" + "-" + currentlySubscribedTopic);
+    //console.log("subscribedto" + "-" + currentlySubscribedTopic);
       const connection = new signalR.HubConnectionBuilder()
         .withUrl(connectionUrl, { accessTokenFactory: () => accessToken })
         //.configureLogging(signalR.LogLevel.Trace)
@@ -48,7 +48,7 @@ export default {
         setTimeout(() => this.ConnectToHub(), 2000);
       });
 
-      connection.on(currentlySubscribedTopic, (updated) => {
+      connection.on("fileUpload", (updated) => {
         console.log("Received message...", updated);
         this.$root.$emit("send", "updated");
       });

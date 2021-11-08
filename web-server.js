@@ -2,7 +2,11 @@
 const express = require("express");
 const { join } = require("path");
 const morgan = require("morgan");
+const serveStatic = require("serve-static");
 const app = express();
+
+var staticPage = serveStatic('dist', {})
+app.use(staticPage)
 
 app.use(morgan("dev"));
 app.use(express.static(join(__dirname, "dist")));
