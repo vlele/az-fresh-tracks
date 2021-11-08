@@ -31,7 +31,7 @@ module.exports = async function (context, req) {
 
        context.res={
             statusCode: 200,
-            body: items,
+            body:{Items:items},
             headers,
             }
         }
