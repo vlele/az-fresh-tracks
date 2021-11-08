@@ -14,7 +14,8 @@ module.exports = async function (context, req) {
     const containerName = 'GpxItems';
     const client = new CosmosClient({ endpoint, key });
       try{
-         const userID = context.bindingData.query.user_id;
+               
+        const userID = context.bindingData.query.user_id;
       
         const database = client.database(dbName);
         const container = database.container(containerName);
@@ -28,9 +29,9 @@ module.exports = async function (context, req) {
             .query(querySpec)
             .fetchAll();
 
-        return {
+       context.res={
             statusCode: 200,
-            body: JSON.stringify(items),
+            body: items,
             headers,
             }
         }

@@ -39,7 +39,7 @@ module.exports = async function (context, req) {
       console.log('\nDownloaded blob content...');
 
       let gpx  = await streamToString(downloadBlockBlobResponse.readableStreamBody);
-         return  response = {
+       context.res = {
             statusCode: 200,
             body: gpx,
             headers
