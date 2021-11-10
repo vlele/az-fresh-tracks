@@ -1,7 +1,19 @@
 const axios = require('axios');
 
-module.exports = async function (context, eventGridEvent) {
+var ColdStart = true;
 
+module.exports = async function (context, eventGridEvent) {
+    var appInsights = require('applicationinsights');
+
+    const iKey = process.env.FreshTracks_AppInsights_Ikey;
+    appInsights.setup(iKey).start();
+    if (ColdStart){
+      appInsights.defaultClient.trackMetric({name: "coldstart", value: 1})
+      ColdStart = false;
+    } else {
+      appInsights.defaultClient.trackMetric({name: "warmstart", value: 1})
+    }
+    
     const url =`${process.env.FunctionAppUrl}/orchestrators/ProcessFileOrchestrator`; 
 
     axios

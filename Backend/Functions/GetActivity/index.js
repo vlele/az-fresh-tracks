@@ -1,7 +1,19 @@
 const { CosmosClient } = require("@azure/cosmos");
 
+var ColdStart = true;
 module.exports = async function (context, req) {
     const storage = require("@azure/storage-blob");
+    var appInsights = require('applicationinsights');
+
+    const iKey = process.env.FreshTracks_AppInsights_Ikey;
+    appInsights.setup(iKey).start();
+    if (ColdStart){
+      appInsights.defaultClient.trackMetric({name: "coldstart", value: 1})
+      ColdStart = false;
+    } else {
+      appInsights.defaultClient.trackMetric({name: "warmstart", value: 1})
+    }
+    
     const headers = {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
