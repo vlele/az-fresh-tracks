@@ -1,7 +1,6 @@
 const { CosmosClient } = require("@azure/cosmos");
 
 module.exports = async function (context, req) {
-    context.log('JavaScript HTTP trigger function processed a request.');
     const headers = {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
