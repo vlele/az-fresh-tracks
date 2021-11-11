@@ -2,6 +2,5 @@
   "domain": "dev-freshtracker.us.auth0.com",
   "clientId": "oD4l5s9g0AZx0aSOXhAvcHqMOlZucywJ",
   "audience": "https://dev-freshtracker.us.auth0.com/api/v2/",
-  "VUE_APP_APIGW_URL": "https://fresh-tracks-apim.azure-api.net/api",
-  "VUE_APP_IdentityPoolId": " "
+  "VUE_APP_APIGW_URL": "https://fresh-tracks-apim.azure-api.net/api"
 }

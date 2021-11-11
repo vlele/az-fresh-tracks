@@ -13,7 +13,7 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 
 //******  STEP 1. Un comment the "import" line below *********************** /
- import { domain,clientId,audience, VUE_APP_APIGW_URL,VUE_APP_IdentityPoolId } from "./auth/auth_config.json";
+ import { domain,clientId,audience, VUE_APP_APIGW_URL } from "./auth/auth_config.json";
 //************************************************************************ /
 
 //****** STEP 2. Comment out the 3 lines below *************************** /
