@@ -31,9 +31,21 @@ const headers = {
     'Access-Control-Allow-Headers': "Content-Type",
     "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
   }
-
+  var ColdStart = true;
+  
 module.exports = async function (context) {
   context.log("blobinfo", context.bindings.blobinfo);
+
+  var appInsights = require('applicationinsights');
+    const iKey = process.env.FreshTracks_AppInsights_Ikey;
+    appInsights.setup(iKey).start();
+    if (ColdStart){
+      appInsights.defaultClient.trackMetric({name: "coldstart", value: 1})
+      ColdStart = false;
+    } else {
+      appInsights.defaultClient.trackMetric({name: "warmstart", value: 1})
+    }
+
   try {
   
   const accountname =process.env.FreshTracks_StorageAccount;

@@ -16,7 +16,7 @@ const endpoint = process.env.FreshTracks_CosmosAccount_Endpoint;
 const key = process.env.FreshTracks_CosmosAccount_Key;
 const dbName = process.env.FreshTracks_CosmosAccount_DBName;
 const containerName = process.env.FreshTracks_CosmosAccount_ContainerName;
-
+var ColdStart = true;
 const headers = { 
   'Content-Type': 'application/json',
   'Access-Control-Allow-Origin': '*',
@@ -25,6 +25,17 @@ const headers = {
 }
 
 module.exports = async function (context,req) {
+
+    var appInsights = require('applicationinsights');
+    const iKey = process.env.FreshTracks_AppInsights_Ikey;
+    appInsights.setup(iKey).start();
+    if (ColdStart){
+      appInsights.defaultClient.trackMetric({name: "coldstart", value: 1})
+      ColdStart = false;
+    } else {
+      appInsights.defaultClient.trackMetric({name: "warmstart", value: 1})
+    }
+
     try {
     var Item =  {
         id: Math.floor(Math.random() * Math.floor(10000000)).toString(),

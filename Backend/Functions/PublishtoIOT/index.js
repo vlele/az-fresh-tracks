@@ -8,10 +8,19 @@
  * - run 'npm install durable-functions' from the wwwroot folder of your
  *   function app in Kudu
  */
+var ColdStart = true;
 
 module.exports = async function (context) {
-    context.bindings.signalRMessages = "Test Message";
-//Endpoint=https://tracksignal.service.signalr.net;AccessKey=uTZ2ns7G2pW1RI9YIhr37uSr8C9xoJmveW1+PkSQiLo=;Version=1.0;
+    
+    var appInsights = require('applicationinsights');
+    const iKey = process.env.FreshTracks_AppInsights_Ikey;
+    appInsights.setup(iKey).start();
+    if (ColdStart){
+      appInsights.defaultClient.trackMetric({name: "coldstart", value: 1})
+      ColdStart = false;
+    } else {
+      appInsights.defaultClient.trackMetric({name: "warmstart", value: 1})
+    }
 
 context.bindings.signalRMessages = {target: 'fileUpload',
 userId: context.name,
