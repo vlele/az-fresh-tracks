@@ -37,13 +37,13 @@
       </div>
 
        <h1></h1>
-    <IoT/>
+    <signalRClient/>
     </div>
 </template>
 
 <script>
 import axios from 'axios';
-import IoT from './Iot'
+import signalRClient from './signalRClient'
 import SkeletonTable from './SkeletonTable'
 import configService from '../auth/configService'
 
@@ -62,7 +62,7 @@ export default {
     }
   },
   components: {
-    IoT,
+    signalRClient,
     SkeletonTable,
   },
   props: {

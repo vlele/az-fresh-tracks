@@ -7,7 +7,7 @@ import configService from "../auth/configService";
 import axios from "axios";
 import signalR from "@microsoft/signalr";
 export default {
-  name: "IoT",
+  name: "signalRClient",
   methods: {
     async ConnectToHub() {
      
